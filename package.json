@@ -1,0 +1,22 @@
+{
+  "name": "CyberKidsBot",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "register": "node ./dist/deployCommands"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "@discordjs/builders": "^0.11.0",
+    "@discordjs/rest": "^0.2.0-canary.0",
+    "@taquito/taquito": "^11.1.0",
+    "@taquito/utils": "^11.1.0",
+    "axios": "^0.24.0",
+    "discord-api-types": "^0.26.1",
+    "discord.js": "^13.5.1"
+  }
+}
