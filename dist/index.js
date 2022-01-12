@@ -16,6 +16,7 @@ client.on('interactionCreate', async (interaction) => {
         if (metadata) {
             let embed = new MessageEmbed()
                 .setTitle(`Cyber Kid #${id}`)
+                .setColor(0x00fefe)
                 .setURL(`https://objkt.com/asset/cyberkidzclub/${id}`)
                 .setImage(metadata.artifactUri)
                 .addFields(metadata.attributes.map((a) => ({ ...a, inline: true })));
