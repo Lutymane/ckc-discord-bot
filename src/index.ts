@@ -23,13 +23,18 @@ client.on('interactionCreate', async interaction => {
 
         let metadata = await getKid(id)
 
-        let embed = new MessageEmbed()
-            .setTitle(`Cyber Kid #${id}`)
-            .setURL(`https://objkt.com/asset/cyberkidzclub/${id}`)
-            .setImage(metadata.artifactUri)
-            .addFields(metadata.attributes.map((a) => ({ ...a, inline: true })))
+        if (metadata) {
+            let embed = new MessageEmbed()
+                .setTitle(`Cyber Kid #${id}`)
+                .setURL(`https://objkt.com/asset/cyberkidzclub/${id}`)
+                .setImage(metadata.artifactUri)
+                .addFields(metadata.attributes.map((a) => ({ ...a, inline: true })))
 
-        await interaction.editReply({ embeds: [embed] });
+            await interaction.editReply({ embeds: [embed] });
+        }
+        else {
+            await interaction.editReply('No kid with such ID found');
+        }
     }
 })
 

@@ -13,12 +13,17 @@ client.on('interactionCreate', async (interaction) => {
         await interaction.deferReply();
         let id = interaction.options.get('id', true).value;
         let metadata = await getKid(id);
-        let embed = new MessageEmbed()
-            .setTitle(`Cyber Kid #${id}`)
-            .setURL(`https://objkt.com/asset/cyberkidzclub/${id}`)
-            .setImage(metadata.artifactUri)
-            .addFields(metadata.attributes.map((a) => ({ ...a, inline: true })));
-        await interaction.editReply({ embeds: [embed] });
+        if (metadata) {
+            let embed = new MessageEmbed()
+                .setTitle(`Cyber Kid #${id}`)
+                .setURL(`https://objkt.com/asset/cyberkidzclub/${id}`)
+                .setImage(metadata.artifactUri)
+                .addFields(metadata.attributes.map((a) => ({ ...a, inline: true })));
+            await interaction.editReply({ embeds: [embed] });
+        }
+        else {
+            await interaction.editReply('No kid with such ID found');
+        }
     }
 });
 client.login(token);
