@@ -1,5 +1,7 @@
 export const tezosRPC = "https://mainnet.api.tez.ie/"
-export const ipfsGate = 'https://cloudflare-ipfs.com/ipfs/'//"https://ipfs.io/ipfs/"
+export const ipfsGate = 'https://gateway.pinata.cloud/ipfs'
+//'https://cloudflare-ipfs.com/ipfs/'
+//"https://ipfs.io/ipfs/"
 
 //import fs from 'fs/promises'
 export const token =
