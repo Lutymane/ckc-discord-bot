@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "type": "module",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "register": "node ./dist/deployCommands.js"
   },
