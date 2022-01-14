@@ -10,6 +10,12 @@ const commands = [
         .setName('id')
         .setDescription('Cyber Kid ID')
         .setRequired(true)),
+    new SlashCommandBuilder()
+        .setName('progress')
+        .setDescription('Checks current sale progress'),
+    new SlashCommandBuilder()
+        .setName('random')
+        .setDescription('Shows a random kid'),
 ]
     .map(command => command.toJSON());
 const rest = new REST({ version: '9' }).setToken(token);

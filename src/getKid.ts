@@ -1,21 +1,12 @@
-import { BigMapAbstraction, MichelsonMap, TezosToolkit } from "@taquito/taquito";
+import { type MichelsonMap } from "@taquito/taquito";
 import { bytes2Char } from "@taquito/utils";
 import axios from "axios";
+import { storage_fa2 } from "./contract.js";
 
-import { tezosRPC, ipfsGate } from './config.js'
-
-let tezos = new TezosToolkit(tezosRPC);
-
-let cyberKidsContract = await tezos.contract.at("KT19VQfPZhmAw9FN3hs2da3CmezrdP2ubQCc");
-let storage = await cyberKidsContract.storage<{
-    assets: {
-        token_metadata: BigMapAbstraction;
-    };
-}>();
-
+import { ipfsGate } from './config.js'
 
 async function getKid(cyberKidId: number | string) {
-    let tokenMetadata = await storage.assets.token_metadata.get<{
+    let tokenMetadata = await storage_fa2.assets.token_metadata.get<{
         token_info: MichelsonMap<string, string>;
     }>(cyberKidId);
 

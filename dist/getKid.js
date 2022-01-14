@@ -1,12 +1,9 @@
-import { TezosToolkit } from "@taquito/taquito";
 import { bytes2Char } from "@taquito/utils";
 import axios from "axios";
-import { tezosRPC, ipfsGate } from './config.js';
-let tezos = new TezosToolkit(tezosRPC);
-let cyberKidsContract = await tezos.contract.at("KT19VQfPZhmAw9FN3hs2da3CmezrdP2ubQCc");
-let storage = await cyberKidsContract.storage();
+import { storage_fa2 } from "./contract.js";
+import { ipfsGate } from './config.js';
 async function getKid(cyberKidId) {
-    let tokenMetadata = await storage.assets.token_metadata.get(cyberKidId);
+    let tokenMetadata = await storage_fa2.assets.token_metadata.get(cyberKidId);
     if (!tokenMetadata) {
         return null;
     }
