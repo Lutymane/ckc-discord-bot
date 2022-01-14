@@ -1,5 +1,5 @@
 import { type BigMapAbstraction, TezosToolkit } from "@taquito/taquito";
-import { tezosRPC } from "config";
+import { tezosRPC } from "./config.js";
 
 export const tezos = new TezosToolkit(tezosRPC);
 

@@ -1,4 +1,5 @@
 import { Client, Intents, MessageEmbed } from "discord.js"
+
 import { getSaleData } from "./getSaleData.js";
 import { token } from "./config.js";
 import { getKid } from "./getKid.js";

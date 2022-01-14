@@ -1,8 +1,8 @@
 import { type MichelsonMap } from "@taquito/taquito";
 import { bytes2Char } from "@taquito/utils";
 import axios from "axios";
-import { storage_fa2 } from "./contract.js";
 
+import { storage_fa2 } from "./contract.js";
 import { ipfsGate } from './config.js'
 
 async function getKid(cyberKidId: number | string) {
