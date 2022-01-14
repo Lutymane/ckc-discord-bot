@@ -13,7 +13,7 @@ export let storage_fa2 = await cyberKidsFA2Contract.storage<{
     };
 }>();
 
-export const storage_cs = await cyberKidsCSContract.storage<{
+export const get_storage_cs = async () => await cyberKidsCSContract.storage<{
     sale: {
         soldAmount: number,
         saleSupply: number,

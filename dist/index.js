@@ -2,7 +2,6 @@ import { Client, Intents, MessageEmbed } from "discord.js";
 import { getSaleData } from "./getSaleData.js";
 import { token } from "./config.js";
 import { getKid } from "./getKid.js";
-import { storage_cs } from "./contract.js";
 const client = new Client({ intents: [Intents.FLAGS.GUILD_MESSAGES] });
 client.once('ready', async () => {
     console.log('Ready!');
@@ -49,8 +48,9 @@ client.on('interactionCreate', async (interaction) => {
                 await interaction.deferReply();
                 let id = 0;
                 let metadata = null;
+                let { saleSupply } = await getSaleData();
                 while (!metadata) {
-                    id = 1 + Math.floor(Math.random() * (storage_cs.sale.saleSupply + 1));
+                    id = 1 + Math.floor(Math.random() * (saleSupply + 1));
                     metadata = await getKid(id);
                 }
                 let embed = new MessageEmbed()
